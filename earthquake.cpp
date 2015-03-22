@@ -1,7 +1,4 @@
 #include "earthquake.h"
-#include "io_print_handler.h"
-
-using namespace std;
 
 void Earthquake::set_lat(Earthquake er_info[1], ofstream& errorfile, double lat1) {
     if (-60 <= lat1 && lat1 <= 60) {

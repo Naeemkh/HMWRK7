@@ -1,8 +1,4 @@
 #include "station.h"
-#include "io_print_handler.h"
-
-using namespace std;
-
 
 void Event::set_nt_name(Event db[MAXSIZE],Network_Code nt_name1) {
 
