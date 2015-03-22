@@ -22,22 +22,30 @@ enum Instro_Type {
     HighGain, LowGain, Accelerometer
 };
 
-struct Event {
-    Network_Code nt_name;
-    string st_name;
-    Band_Type b_type;
-    Instro_Type Ins_type;
-    string orientation;
+
+class Event {
+    
+    public:
+
+
+        void set_nt_name(Event db[MAXSIZE], Network_Code);
+        void set_st_name(Event db[MAXSIZE], string);
+        void set_b_type(Event db[MAXSIZE], Band_Type);
+        void set_Ins_type(Event db[MAXSIZE], Instro_Type);
+        void set_orientation(Event db[MAXSIZE], string);
+        Network_Code get_nt_name(Event db[MAXSIZE]);
+        string get_st_name(Event db[MAXSIZE], string);
+        Band_Type get_band_type(Event db[MAXSIZE], string);
+        Instro_Type get_Ins_type(Event db[MAXSIZE], string);
+        string get_orientation(Event db[MAXSIZE], string);
+    
+    private:
+        Network_Code nt_name;
+        string st_name;
+        Band_Type b_type;
+        Instro_Type Ins_type;
+        string orientation;
 };
 
-void set_nt_name(Event db[MAXSIZE], int, Network_Code);
-void set_st_name(Event db[MAXSIZE], int size, string);
-void set_b_type(Event db[MAXSIZE], int size, Band_Type);
-void set_Ins_type(Event db[MAXSIZE], int size, Instro_Type);
-void set_orientation(Event db[MAXSIZE], int size, string);
 
-Network_Code get_nt_name(Event db[MAXSIZE], int, string);
-string get_st_name(Event db[MAXSIZE], int, string);
-Band_Type get_band_type(Event db[MAXSIZE], int, string);
-Instro_Type get_Ins_type(Event db[MAXSIZE], int, string);
-string get_orientation(Event db[MAXSIZE], int, string);
+

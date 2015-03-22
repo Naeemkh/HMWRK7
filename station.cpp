@@ -1,46 +1,56 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <cstdlib>
+#include <iomanip>
+#include <string.h>
 #include "station.h"
 #include "io_print_handler.h"
 
-void set_nt_name(Event db[MAXSIZE], int size, Network_Code nt_name) {
+using namespace std;
 
-    db[size].nt_name = nt_name;
+
+void Event::set_nt_name(Event db[MAXSIZE],Network_Code nt_name1) {
+
+    nt_name = nt_name1;
 }
 
-Network_Code get_nt_name(Event db[MAXSIZE], int size, string nt_name) {
+Network_Code Event::get_nt_name(Event db[MAXSIZE]) {
 
-    return db[size].nt_name;
+    return nt_name;
 }
 
-void set_st_name(Event db[MAXSIZE], int size, string st_name) {
-    db[size].st_name = st_name;
+void Event::set_st_name(Event db[MAXSIZE], string st_name1) {
+    st_name = st_name1;
 }
 
-string get_st_name(Event db[MAXSIZE], int size, string st_name) {
-    return db[size].st_name;
+string Event::get_st_name(Event db[MAXSIZE], string st_name1) {
+    return st_name;
 }
 
-void set_b_type(Event db[MAXSIZE], int size, Band_Type b_type) {
-    db[size].b_type = b_type;
+void Event::set_b_type(Event db[MAXSIZE], Band_Type b_type1) {
+    b_type = b_type1;
 }
 
-Band_Type get_band_type(Event db[MAXSIZE], int size, string b_type) {
-    return db[size].b_type;
+Band_Type Event::get_band_type(Event db[MAXSIZE], string b_type1) {
+    return b_type;
 }
 
-void set_Ins_type(Event db[MAXSIZE], int size, Instro_Type Ins_type) {
+void Event::set_Ins_type(Event db[MAXSIZE], Instro_Type Ins_type1) {
 
-    db[size].Ins_type = Ins_type;
+    Ins_type = Ins_type1;
 }
 
-Instro_Type get_Ins_type(Event db[MAXSIZE], int size, string Ins_type) {
-    return db[size].Ins_type;
+Instro_Type Event::get_Ins_type(Event db[MAXSIZE], string Ins_type1) {
+    return Ins_type;
 }
 
-void set_orientation(Event db[MAXSIZE], int size, string orientation) {
+void Event::set_orientation(Event db[MAXSIZE], string orientation1) {
 
-    db[size].orientation = orientation;
+    orientation = orientation1;
 }
 
-string get_orientation(Event db[MAXSIZE], int size, string orientation) {
-    return db[size].orientation;
+string Event::get_orientation(Event db[MAXSIZE], string orientation1) {
+    return orientation;
 }

@@ -11,7 +11,7 @@
 using namespace std;
 
 void Earthquake::set_lat(Earthquake er_info[1], ofstream& errorfile, double lat1) {
-    if (-60 <= lat && lat <= 60) {
+    if (-60 <= lat1 && lat1 <= 60) {
         lat = lat1;
     } else {
         print_output(errorfile, cout, "Latitude is not valid. \n");
@@ -25,7 +25,7 @@ double Earthquake::get_lat(Earthquake er_info[1], string lat1) {
 }
 
 void Earthquake::set_lon(Earthquake er_info[1], ofstream& errorfile, double lon1) {
-    if (-180 <= lon && lon <= 180) {
+    if (-180 <= lon1 && lon1 <= 180) {
         lon = lon1;
     } else {
         print_output(errorfile, cout, "Longitude is not valid. \n");

@@ -538,11 +538,11 @@ bool read_input(ifstream& inputfile, ofstream& errorfile, Event db[MAXSIZE],
 
         if (save_record_flag == 1) {
 
-            set_nt_name(db, size, string_to_Network_Code(nt_name));
-            set_st_name(db, size, st_name);
-            set_b_type(db, size, string_to_Band_Type(b_type));
-            set_Ins_type(db, size, string_to_instro_Type(Ins_type));
-            set_orientation(db, size, orientation);
+            db[size].set_nt_name(db, string_to_Network_Code(nt_name));
+            db[size].set_st_name(db, st_name);
+            db[size].set_b_type(db, string_to_Band_Type(b_type));
+            db[size].set_Ins_type(db, string_to_instro_Type(Ins_type));
+            db[size].set_orientation(db, orientation);
 
             total_co = total_co + orientation.size();
 
@@ -763,15 +763,15 @@ void generate_recorded_list(Earthquake er_info[1], ofstream& outputfile,
     outputfile << total_co << "\n";
 
     for (int i = 0; i < size; i++) {
-        int sc = get_orientation(db, i, orientation).size();
+        int sc = db[i].get_orientation(db,orientation).size();
 
         for (int j = 0; j < sc; j++) {
             outputfile << er_info[0].get_event_id(er_info, event_id) << "."
-                    << Network_Code_to_string(get_nt_name(db, i, nt_name))
-                    << "." << get_st_name(db, i, st_name) << "."
-                    << Band_Type_to_string(get_band_type(db, i, b_type))
-                    << Instro_Type_to_string(get_Ins_type(db, i, Ins_type))
-                    << get_orientation(db, i, orientation)[j] << "\n";
+                    << Network_Code_to_string(db[i].get_nt_name(db))
+                    << "." << db[i].get_st_name(db, st_name) << "."
+                    << Band_Type_to_string(db[i].get_band_type(db, b_type))
+                    << Instro_Type_to_string(db[i].get_Ins_type(db, Ins_type))
+                    << db[i].get_orientation(db, orientation)[j] << "\n";
 
         }
 
