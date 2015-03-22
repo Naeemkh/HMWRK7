@@ -763,15 +763,15 @@ void generate_recorded_list(Earthquake er_info[1], ofstream& outputfile,
     outputfile << total_co << "\n";
 
     for (int i = 0; i < size; i++) {
-        int sc = db[i].get_orientation(db,orientation).size();
+        int sc = db[i].get_orientation(db).size();
 
         for (int j = 0; j < sc; j++) {
             outputfile << er_info[0].get_event_id(er_info, event_id) << "."
                     << Network_Code_to_string(db[i].get_nt_name(db))
-                    << "." << db[i].get_st_name(db, st_name) << "."
-                    << Band_Type_to_string(db[i].get_band_type(db, b_type))
-                    << Instro_Type_to_string(db[i].get_Ins_type(db, Ins_type))
-                    << db[i].get_orientation(db, orientation)[j] << "\n";
+                    << "." << db[i].get_st_name(db) << "."
+                    << Band_Type_to_string(db[i].get_band_type(db))
+                    << Instro_Type_to_string(db[i].get_Ins_type(db))
+                    << db[i].get_orientation(db)[j] << "\n";
 
         }
 

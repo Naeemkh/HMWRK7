@@ -34,10 +34,10 @@ class Event {
         void set_Ins_type(Event db[MAXSIZE], Instro_Type);
         void set_orientation(Event db[MAXSIZE], string);
         Network_Code get_nt_name(Event db[MAXSIZE]);
-        string get_st_name(Event db[MAXSIZE], string);
-        Band_Type get_band_type(Event db[MAXSIZE], string);
-        Instro_Type get_Ins_type(Event db[MAXSIZE], string);
-        string get_orientation(Event db[MAXSIZE], string);
+        string get_st_name(Event db[MAXSIZE]);
+        Band_Type get_band_type(Event db[MAXSIZE]);
+        Instro_Type get_Ins_type(Event db[MAXSIZE]);
+        string get_orientation(Event db[MAXSIZE]);
     
     private:
         Network_Code nt_name;
