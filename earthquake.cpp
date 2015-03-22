@@ -1,10 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <cstdlib>
-#include <iomanip>
-#include <string.h>
 #include "earthquake.h"
 #include "io_print_handler.h"
 
