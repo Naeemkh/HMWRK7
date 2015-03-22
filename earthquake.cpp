@@ -1,6 +1,7 @@
 #include "earthquake.h"
 
-void Earthquake::set_lat(Earthquake er_info[1], ofstream& errorfile, double lat1) {
+void Earthquake::set_lat(Earthquake er_info[1], ofstream& errorfile,
+        double lat1) {
     if (-60 <= lat1 && lat1 <= 60) {
         lat = lat1;
     } else {
@@ -14,7 +15,8 @@ double Earthquake::get_lat(Earthquake er_info[1]) {
     return lat;
 }
 
-void Earthquake::set_lon(Earthquake er_info[1], ofstream& errorfile, double lon1) {
+void Earthquake::set_lon(Earthquake er_info[1], ofstream& errorfile,
+        double lon1) {
     if (-180 <= lon1 && lon1 <= 180) {
         lon = lon1;
     } else {
@@ -28,7 +30,8 @@ double Earthquake::get_lon(Earthquake er_info[1]) {
     return lon;
 }
 
-void Earthquake::set_depth(Earthquake er_info[1], ofstream& errorfile, double depth1) {
+void Earthquake::set_depth(Earthquake er_info[1], ofstream& errorfile,
+        double depth1) {
     if (0 <= depth1) {
         depth = depth1;
     } else {
@@ -42,7 +45,8 @@ double Earthquake::get_depth(Earthquake er_info[1]) {
     return depth;
 }
 
-void Earthquake::set_event_id(Earthquake er_info[1], ofstream& errorfile, string event_id1) {
+void Earthquake::set_event_id(Earthquake er_info[1], ofstream& errorfile,
+        string event_id1) {
 
     event_id = event_id1;
 }
@@ -91,7 +95,8 @@ string Earthquake::get_event_name(Earthquake er_info[1]) {
     return event_name;
 }
 
-void Earthquake::set_mag_type(Earthquake er_info[1], ofstream& errorfile, string mag_t1) {
+void Earthquake::set_mag_type(Earthquake er_info[1], ofstream& errorfile,
+        string mag_t1) {
 
     mag_t = mag_t1;
 }
@@ -100,7 +105,8 @@ string Earthquake::get_mag_type(Earthquake er_info[1]) {
     return mag_t;
 }
 
-void Earthquake::set_mag(Earthquake er_info[1], ofstream& errorfile, float mag1) {
+void Earthquake::set_mag(Earthquake er_info[1], ofstream& errorfile,
+        float mag1) {
 
     mag = mag1;
 

@@ -23,30 +23,25 @@ enum Instro_Type {
     HighGain, LowGain, Accelerometer
 };
 
-
 class Event {
-    
-    public:
 
+public:
+    void set_nt_name(Event db[MAXSIZE], Network_Code);
+    void set_st_name(Event db[MAXSIZE], string);
+    void set_b_type(Event db[MAXSIZE], Band_Type);
+    void set_Ins_type(Event db[MAXSIZE], Instro_Type);
+    void set_orientation(Event db[MAXSIZE], string);
+    Network_Code get_nt_name(Event db[MAXSIZE]);
+    string get_st_name(Event db[MAXSIZE]);
+    Band_Type get_band_type(Event db[MAXSIZE]);
+    Instro_Type get_Ins_type(Event db[MAXSIZE]);
+    string get_orientation(Event db[MAXSIZE]);
 
-        void set_nt_name(Event db[MAXSIZE], Network_Code);
-        void set_st_name(Event db[MAXSIZE], string);
-        void set_b_type(Event db[MAXSIZE], Band_Type);
-        void set_Ins_type(Event db[MAXSIZE], Instro_Type);
-        void set_orientation(Event db[MAXSIZE], string);
-        Network_Code get_nt_name(Event db[MAXSIZE]);
-        string get_st_name(Event db[MAXSIZE]);
-        Band_Type get_band_type(Event db[MAXSIZE]);
-        Instro_Type get_Ins_type(Event db[MAXSIZE]);
-        string get_orientation(Event db[MAXSIZE]);
-    
-    private:
-        Network_Code nt_name;
-        string st_name;
-        Band_Type b_type;
-        Instro_Type Ins_type;
-        string orientation;
+private:
+    Network_Code nt_name;
+    string st_name;
+    Band_Type b_type;
+    Instro_Type Ins_type;
+    string orientation;
 };
-
-
 

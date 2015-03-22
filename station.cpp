@@ -1,6 +1,6 @@
 #include "station.h"
 
-void Event::set_nt_name(Event db[MAXSIZE],Network_Code nt_name1) {
+void Event::set_nt_name(Event db[MAXSIZE], Network_Code nt_name1) {
 
     nt_name = nt_name1;
 }

@@ -114,7 +114,7 @@ int main() {
     er_info[0].set_lon(er_info, errorfile, t_lon);
     er_info[0].set_lat(er_info, errorfile, t_lat);
     er_info[0].set_depth(er_info, errorfile, t_depth);
-    
+
     er_info[0].set_event_id(er_info, errorfile, t_event_id);
     er_info[0].set_event_date(er_info, errorfile, t_event_date);
     er_info[0].set_event_time(er_info, errorfile, t_event_time);
@@ -448,7 +448,8 @@ void print_header(int month, int day, int year, Earthquake er_info[1],
             << " " << er_info[0].get_mag(er_info) << " "
             << er_info[0].get_event_name(er_info) << " " << "["
             << er_info[0].get_event_id(er_info) << "]" << "("
-            << er_info[0].get_lon(er_info) << ", " << er_info[0].get_lat(er_info) << ", "
+            << er_info[0].get_lon(er_info) << ", "
+            << er_info[0].get_lat(er_info) << ", "
             << er_info[0].get_depth(er_info) << ")" << "\n";
 
 }
@@ -767,8 +768,8 @@ void generate_recorded_list(Earthquake er_info[1], ofstream& outputfile,
 
         for (int j = 0; j < sc; j++) {
             outputfile << er_info[0].get_event_id(er_info) << "."
-                    << Network_Code_to_string(db[i].get_nt_name(db))
-                    << "." << db[i].get_st_name(db) << "."
+                    << Network_Code_to_string(db[i].get_nt_name(db)) << "."
+                    << db[i].get_st_name(db) << "."
                     << Band_Type_to_string(db[i].get_band_type(db))
                     << Instro_Type_to_string(db[i].get_Ins_type(db))
                     << db[i].get_orientation(db)[j] << "\n";
