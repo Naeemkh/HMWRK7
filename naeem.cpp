@@ -114,7 +114,7 @@ int main() {
     er_info[0].set_lon(er_info, errorfile, t_lon);
     er_info[0].set_lat(er_info, errorfile, t_lat);
     er_info[0].set_depth(er_info, errorfile, t_depth);
-
+    
     er_info[0].set_event_id(er_info, errorfile, t_event_id);
     er_info[0].set_event_date(er_info, errorfile, t_event_date);
     er_info[0].set_event_time(er_info, errorfile, t_event_time);

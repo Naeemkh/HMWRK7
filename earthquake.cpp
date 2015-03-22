@@ -5,11 +5,10 @@
 #include <cstdlib>
 #include <iomanip>
 #include <string.h>
-
-using namespace std;
-
 #include "earthquake.h"
 #include "io_print_handler.h"
+
+using namespace std;
 
 void Earthquake::set_lat(Earthquake er_info[1], ofstream& errorfile, double lat1) {
     if (-60 <= lat && lat <= 60) {
@@ -21,13 +20,13 @@ void Earthquake::set_lat(Earthquake er_info[1], ofstream& errorfile, double lat1
     }
 }
 
-double Earthquake::get_lat(Earthquake er_info[1], string lat) {
-    return er_info[0].lat;
+double Earthquake::get_lat(Earthquake er_info[1], string lat1) {
+    return lat;
 }
 
-void Earthquake::set_lon(Earthquake er_info[1], ofstream& errorfile, double lon) {
+void Earthquake::set_lon(Earthquake er_info[1], ofstream& errorfile, double lon1) {
     if (-180 <= lon && lon <= 180) {
-        er_info[0].lon = lon;
+        lon = lon1;
     } else {
         print_output(errorfile, cout, "Longitude is not valid. \n");
         errorfile.close();
@@ -35,13 +34,13 @@ void Earthquake::set_lon(Earthquake er_info[1], ofstream& errorfile, double lon)
     }
 }
 
-double Earthquake::get_lon(Earthquake er_info[1], string lon) {
-    return er_info[0].lon;
+double Earthquake::get_lon(Earthquake er_info[1], string lon1) {
+    return lon;
 }
 
-void Earthquake::set_depth(Earthquake er_info[1], ofstream& errorfile, double depth) {
-    if (0 <= depth) {
-        er_info[0].depth = depth;
+void Earthquake::set_depth(Earthquake er_info[1], ofstream& errorfile, double depth1) {
+    if (0 <= depth1) {
+        depth = depth1;
     } else {
         print_output(errorfile, cout, "Depth of earthquake is not valid. \n");
         errorfile.close();
@@ -49,75 +48,75 @@ void Earthquake::set_depth(Earthquake er_info[1], ofstream& errorfile, double de
     }
 }
 
-double Earthquake::get_depth(Earthquake er_info[1], string depth) {
-    return er_info[0].depth;
+double Earthquake::get_depth(Earthquake er_info[1], string depth1) {
+    return depth;
 }
 
-void Earthquake::set_event_id(Earthquake er_info[1], ofstream& errorfile, string event_id) {
+void Earthquake::set_event_id(Earthquake er_info[1], ofstream& errorfile, string event_id1) {
 
-    er_info[0].event_id = event_id;
+    event_id = event_id1;
 }
 
-string Earthquake::get_event_id(Earthquake er_info[1], string event_id) {
-    return er_info[0].event_id;
+string Earthquake::get_event_id(Earthquake er_info[1], string event_id1) {
+    return event_id;
 }
 
 void Earthquake::set_event_date(Earthquake er_info[1], ofstream& errorfile,
-        string event_date) {
+        string event_date1) {
 
-    er_info[0].event_date = event_date;
+    event_date = event_date1;
 }
 
-string Earthquake::get_event_date(Earthquake er_info[1], string event_date) {
-    return er_info[0].event_date;
+string Earthquake::get_event_date(Earthquake er_info[1], string event_date1) {
+    return event_date;
 }
 
 void Earthquake::set_event_time(Earthquake er_info[1], ofstream& errorfile,
-        string event_time) {
+        string event_time1) {
 
-    er_info[0].event_time = event_time;
+    event_time = event_time1;
 }
 
-string Earthquake::get_event_time(Earthquake er_info[1], string event_time) {
-    return er_info[0].event_time;
+string Earthquake::get_event_time(Earthquake er_info[1], string event_time1) {
+    return event_time;
 }
 
 void Earthquake::set_time_zone(Earthquake er_info[1], ofstream& errorfile,
-        string time_zone) {
+        string time_zone1) {
 
-    er_info[0].time_zone = time_zone;
+    time_zone = time_zone1;
 }
 
-string Earthquake::get_time_zone(Earthquake er_info[1], string time_zone) {
-    return er_info[0].time_zone;
+string Earthquake::get_time_zone(Earthquake er_info[1], string time_zone1) {
+    return time_zone;
 }
 
 void Earthquake::set_event_name(Earthquake er_info[1], ofstream& errorfile,
-        string event_name) {
+        string event_name1) {
 
-    er_info[0].event_name = event_name;
+    event_name = event_name1;
 }
 
-string Earthquake::get_event_name(Earthquake er_info[1], string event_name) {
-    return er_info[0].event_name;
+string Earthquake::get_event_name(Earthquake er_info[1], string event_name1) {
+    return event_name1;
 }
 
-void Earthquake::set_mag_type(Earthquake er_info[1], ofstream& errorfile, string mag_t) {
+void Earthquake::set_mag_type(Earthquake er_info[1], ofstream& errorfile, string mag_t1) {
 
-    er_info[0].mag_t = mag_t;
+    mag_t = mag_t1;
 }
 
-string Earthquake::get_mag_type(Earthquake er_info[1], string mag_type) {
-    return er_info[0].mag_t;
+string Earthquake::get_mag_type(Earthquake er_info[1], string mag_type1) {
+    return mag_t;
 }
 
-void Earthquake::set_mag(Earthquake er_info[1], ofstream& errorfile, float mag) {
+void Earthquake::set_mag(Earthquake er_info[1], ofstream& errorfile, float mag1) {
 
-    er_info[0].mag = mag;
+    mag = mag1;
 
 }
 
-float Earthquake::get_mag(Earthquake er_info[1], string magnitude) {
-    return er_info[0].mag;
+float Earthquake::get_mag(Earthquake er_info[1], string magnitude1) {
+    return mag;
 }
 
