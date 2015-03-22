@@ -404,11 +404,11 @@ void check_validate(Earthquake er_info[1], ofstream & errorfile, int & month,
     string event_date, event_time, mag_t, time_zone, magnitude;
     float mag;
 
-    event_date = er_info[0].get_event_date(er_info, event_date);
-    event_time = er_info[0].get_event_time(er_info, event_time);
-    mag = er_info[0].get_mag(er_info, magnitude);
-    mag_t = er_info[0].get_mag_type(er_info, mag_t);
-    time_zone = er_info[0].get_time_zone(er_info, time_zone);
+    event_date = er_info[0].get_event_date(er_info);
+    event_time = er_info[0].get_event_time(er_info);
+    mag = er_info[0].get_mag(er_info);
+    mag_t = er_info[0].get_mag_type(er_info);
+    time_zone = er_info[0].get_time_zone(er_info);
 
     if (is_date_valid(event_date, month, day, year) != 0) {
         print_output(errorfile, cout, "Date format is not valid. \n");
@@ -441,15 +441,15 @@ void print_header(int month, int day, int year, Earthquake er_info[1],
             time_zone, mag_t;
 
     outputfile << "# " << day << " " << month_to_string(int_to_months(month))
-            << " " << year << " " << er_info[0].get_event_time(er_info, event_time) << " "
-            << er_info[0].get_time_zone(er_info, time_zone) << " "
+            << " " << year << " " << er_info[0].get_event_time(er_info) << " "
+            << er_info[0].get_time_zone(er_info) << " "
             << Magnitude_Type_to_string(
-                    string_to_Magnitude_Type(er_info[0].get_mag_type(er_info, mag_t)))
-            << " " << er_info[0].get_mag(er_info, magnitude) << " "
-            << er_info[0].get_event_name(er_info, event_name) << " " << "["
-            << er_info[0].get_event_id(er_info, event_id) << "]" << "("
-            << er_info[0].get_lon(er_info, lon) << ", " << er_info[0].get_lat(er_info, lat) << ", "
-            << er_info[0].get_depth(er_info, depth) << ")" << "\n";
+                    string_to_Magnitude_Type(er_info[0].get_mag_type(er_info)))
+            << " " << er_info[0].get_mag(er_info) << " "
+            << er_info[0].get_event_name(er_info) << " " << "["
+            << er_info[0].get_event_id(er_info) << "]" << "("
+            << er_info[0].get_lon(er_info) << ", " << er_info[0].get_lat(er_info) << ", "
+            << er_info[0].get_depth(er_info) << ")" << "\n";
 
 }
 
@@ -766,7 +766,7 @@ void generate_recorded_list(Earthquake er_info[1], ofstream& outputfile,
         int sc = db[i].get_orientation(db).size();
 
         for (int j = 0; j < sc; j++) {
-            outputfile << er_info[0].get_event_id(er_info, event_id) << "."
+            outputfile << er_info[0].get_event_id(er_info) << "."
                     << Network_Code_to_string(db[i].get_nt_name(db))
                     << "." << db[i].get_st_name(db) << "."
                     << Band_Type_to_string(db[i].get_band_type(db))
