@@ -3,7 +3,7 @@
  * Prof. Ricardo Taborda
  * Homework 6
  * Written by : Naeem Khoshnevis (nkhshnvs@memphis.edu)
- * https://github.com/Naeemkh/HMWRK6.git
+ * https://github.com/Naeemkh/HMWRK7.git
  * March 15 , 2015
  */
 
