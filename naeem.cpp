@@ -18,6 +18,7 @@
 #include "earthquake.h"
 #include "station.h"
 #include "io_print_handler.h"
+#include "input_validate.h"
 
 using namespace std;
 
@@ -47,11 +48,17 @@ bool is_time_valid(string &);
 bool is_tzone_valid(string);
 bool is_mag_valid(string);
 bool is_mag_inrange(float);
+
+/*
+
 bool is_net_valid(string);
 bool is_station_valid(string);
 bool is_band_valid(string);
 bool is_instrument_valid(string);
 bool is_or_valid(string);
+
+ */
+
 bool read_input(ifstream&, ofstream&, Event db[MAXSIZE], int &, int &, int &,
         int &, int &);
 
@@ -63,7 +70,7 @@ void generate_recorded_list(Earthquake er_info[1], ofstream&, Event db[MAXSIZE],
 string Instro_Type_to_string(Instro_Type c);
 string Band_Type_to_string(Band_Type c);
 string Network_Code_to_string(Network_Code c);
-string uppercase(string &);
+//string uppercase(string &);
 string Magnitude_Type_to_string(Magnitude_Type);
 
 months int_to_months(int);
@@ -391,12 +398,14 @@ string month_to_string(months c) {
     exit (EXIT_FAILURE);
 }
 
+/*
 string uppercase(string & s) {
     string result = s;
     for (int i = 0; i < (int) result.size(); i++)
         result[i] = toupper(result[i]);
     return result;
 }
+*/
 
 void check_validate(Earthquake er_info[1], ofstream & errorfile, int & month,
         int & day, int & year) {
@@ -558,6 +567,8 @@ bool read_input(ifstream& inputfile, ofstream& errorfile, Event db[MAXSIZE],
     return true;
 }
 
+/*
+
 bool is_net_valid(string nt_name) {
     bool net_flag = 0;
     string ss = uppercase(nt_name);
@@ -658,6 +669,8 @@ bool is_or_valid(string orientation) {
     return or_flag;
 }
 
+*/
+ 
 Network_Code string_to_Network_Code(string s) {
 
     string ss = uppercase(s);
