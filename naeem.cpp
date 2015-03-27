@@ -48,8 +48,6 @@ bool is_time_valid(string &);
 bool is_tzone_valid(string);
 bool is_mag_valid(string);
 bool is_mag_inrange(float);
-
-
 bool read_input(ifstream&, ofstream&, Event db[MAXSIZE], int &, int &, int &,
         int &, int &);
 
@@ -59,7 +57,6 @@ void generate_recorded_list(Earthquake er_info[1], ofstream&, Event db[MAXSIZE],
         int &, int &);
 
 string Magnitude_Type_to_string(Magnitude_Type);
-
 months int_to_months(int);
 Magnitude_Type string_to_Magnitude_Type(string);
 
@@ -382,8 +379,6 @@ string month_to_string(months c) {
     exit (EXIT_FAILURE);
 }
 
-
-
 void check_validate(Earthquake er_info[1], ofstream & errorfile, int & month,
         int & day, int & year) {
 
@@ -543,7 +538,6 @@ bool read_input(ifstream& inputfile, ofstream& errorfile, Event db[MAXSIZE],
     valid_counter = total_entry - invalid_counter - 1;
     return true;
 }
-
 
 void generate_recorded_list(Earthquake er_info[1], ofstream& outputfile,
         Event db[MAXSIZE], int & size, int & total_co) {
