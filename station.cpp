@@ -39,6 +39,68 @@ string Network_Code_to_string(Network_Code c) {
 }
 
 
+ Band_Type string_to_Band_Type(string s) {
+ 
+ string ss = uppercase(s);
+ 
+ if (ss == "LONG-PERIOD")
+ return Longperiod;
+ if (ss == "SHORT-PERIOD")
+ return Shortperiod;
+ if (ss == "BROADBAND")
+ return Broadband;
+ 
+ // It should never get here!!
+ exit (EXIT_FAILURE);
+ 
+ }
+ 
+ string Band_Type_to_string(Band_Type c) {
+ switch (c) {
+ case Longperiod:
+ return "L";
+ case Shortperiod:
+ return "B";
+ case Broadband:
+ return "H";
+ 
+ }
+ 
+ // It should never get here!!
+ exit (EXIT_FAILURE);
+ }
+ 
+ Instro_Type string_to_instro_Type(string s) {
+ 
+ string ss = uppercase(s);
+ 
+ if (ss == "HIGH-GAIN")
+ return HighGain;
+ if (ss == "LOW-GAIN")
+ return LowGain;
+ if (ss == "ACCELEROMETER")
+ return Accelerometer;
+ 
+ // It should never get here!!
+ exit (EXIT_FAILURE);
+ 
+ }
+ 
+ string Instro_Type_to_string(Instro_Type c) {
+ switch (c) {
+ case HighGain:
+ return "H";
+ case LowGain:
+ return "L";
+ case Accelerometer:
+ return "N";
+ 
+ }
+ // It should never get here!!
+ exit (EXIT_FAILURE);
+ }
+
+
 
 
 
@@ -51,11 +113,9 @@ void Event::set_nt_name(Event db[MAXSIZE], Network_Code nt_name1) {
     if (is_net_valid(nt_name2) == 1) {
            nt_name = nt_name1;
     } else {
-        cout << "Invalide alloacation.";
+        cout << "Invalid Network alloacation.";
     }
 }
-
-
 
 
 Network_Code Event::get_nt_name(Event db[MAXSIZE]) {
@@ -64,24 +124,39 @@ Network_Code Event::get_nt_name(Event db[MAXSIZE]) {
 }
 
 void Event::set_st_name(Event db[MAXSIZE], string st_name1) {
+    if (is_station_valid(st_name1) == 1) {
     st_name = st_name1;
+    } else {
+        cout << "Invalid station alloacation.";
+    }
 }
 
 string Event::get_st_name(Event db[MAXSIZE]) {
     return st_name;
 }
 
-void Event::set_b_type(Event db[MAXSIZE], Band_Type b_type1) {
-    b_type = b_type1;
+void Event::set_b_type(Event db[MAXSIZE], string b_type1) {
+    
+    
+    if (is_band_valid(b_type1) == 1) {
+    b_type = string_to_Band_Type(b_type1);
+    } else {
+        cout << "Invalid bandtype alloacation.";
+    }
 }
 
 Band_Type Event::get_band_type(Event db[MAXSIZE]) {
     return b_type;
 }
 
-void Event::set_Ins_type(Event db[MAXSIZE], Instro_Type Ins_type1) {
-
-    Ins_type = Ins_type1;
+void Event::set_Ins_type(Event db[MAXSIZE], string Ins_type1) {
+    
+    if (is_instrument_valid(Ins_type1) == 1) {
+    Ins_type = string_to_instro_Type(Ins_type1);
+    } else {
+        cout << "Invalid instrument type alloacation.";
+    }
+    
 }
 
 Instro_Type Event::get_Ins_type(Event db[MAXSIZE]) {
@@ -89,8 +164,12 @@ Instro_Type Event::get_Ins_type(Event db[MAXSIZE]) {
 }
 
 void Event::set_orientation(Event db[MAXSIZE], string orientation1) {
-
+     if (is_or_valid(orientation) == 1) {
     orientation = orientation1;
+     }else {
+             cout << "Invalid orientation alloacation.";
+         }
+         
 }
 
 string Event::get_orientation(Event db[MAXSIZE]) {

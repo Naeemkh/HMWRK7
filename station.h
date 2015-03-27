@@ -26,6 +26,11 @@ enum Instro_Type {
 
 string Network_Code_to_string(Network_Code c);
 Network_Code string_to_Network_Code(string);
+string Instro_Type_to_string(Instro_Type c);
+string Band_Type_to_string(Band_Type c);
+Band_Type string_to_Band_Type(string);
+Instro_Type string_to_instro_Type(string);
+
 
 
 
@@ -34,8 +39,8 @@ class Event {
 public:
     void set_nt_name(Event db[MAXSIZE], Network_Code);
     void set_st_name(Event db[MAXSIZE], string);
-    void set_b_type(Event db[MAXSIZE], Band_Type);
-    void set_Ins_type(Event db[MAXSIZE], Instro_Type);
+    void set_b_type(Event db[MAXSIZE], string);
+    void set_Ins_type(Event db[MAXSIZE], string);
     void set_orientation(Event db[MAXSIZE], string);
     Network_Code get_nt_name(Event db[MAXSIZE]);
     string get_st_name(Event db[MAXSIZE]);

@@ -58,16 +58,9 @@ void print_header(int, int, int, Earthquake er_info[1], ofstream&);
 void generate_recorded_list(Earthquake er_info[1], ofstream&, Event db[MAXSIZE],
         int &, int &);
 
-string Instro_Type_to_string(Instro_Type c);
-string Band_Type_to_string(Band_Type c);
-//string Network_Code_to_string(Network_Code c);
-//string uppercase(string &);
 string Magnitude_Type_to_string(Magnitude_Type);
 
 months int_to_months(int);
-//Network_Code string_to_Network_Code(string);
-Band_Type string_to_Band_Type(string);
-Instro_Type string_to_instro_Type(string);
 Magnitude_Type string_to_Magnitude_Type(string);
 
 /********************************* main function ****************************************/
@@ -534,8 +527,8 @@ bool read_input(ifstream& inputfile, ofstream& errorfile, Event db[MAXSIZE],
 
             db[size].set_nt_name(db, string_to_Network_Code(nt_name));
             db[size].set_st_name(db, st_name);
-            db[size].set_b_type(db, string_to_Band_Type(b_type));
-            db[size].set_Ins_type(db, string_to_instro_Type(Ins_type));
+            db[size].set_b_type(db, b_type);
+            db[size].set_Ins_type(db, Ins_type);
             db[size].set_orientation(db, orientation);
 
             total_co = total_co + orientation.size();
@@ -551,106 +544,6 @@ bool read_input(ifstream& inputfile, ofstream& errorfile, Event db[MAXSIZE],
     return true;
 }
 
-/*
- 
-Network_Code string_to_Network_Code(string s) {
-
-    string ss = uppercase(s);
-
-    if (ss == "CE")
-        return CE;
-    if (ss == "CI")
-        return CI;
-    if (ss == "FA")
-        return FA;
-    if (ss == "NP")
-        return NP;
-    if (ss == "WR")
-        return WR;
-
-    // It should never get here!!
-    exit (EXIT_FAILURE);
-
-}
-
-string Network_Code_to_string(Network_Code c) {
-    switch (c) {
-    case CE:
-        return "CE";
-    case CI:
-        return "CI";
-    case FA:
-        return "FA";
-    case NP:
-        return "NP";
-    case WR:
-        return "WR";
-    }
-    // It should never get here!!
-    exit (EXIT_FAILURE);
-}
-
- */
-Band_Type string_to_Band_Type(string s) {
-
-    string ss = uppercase(s);
-
-    if (ss == "LONG-PERIOD")
-        return Longperiod;
-    if (ss == "SHORT-PERIOD")
-        return Shortperiod;
-    if (ss == "BROADBAND")
-        return Broadband;
-
-    // It should never get here!!
-    exit (EXIT_FAILURE);
-
-}
-
-string Band_Type_to_string(Band_Type c) {
-    switch (c) {
-    case Longperiod:
-        return "L";
-    case Shortperiod:
-        return "B";
-    case Broadband:
-        return "H";
-
-    }
-
-    // It should never get here!!
-    exit (EXIT_FAILURE);
-}
-
-Instro_Type string_to_instro_Type(string s) {
-
-    string ss = uppercase(s);
-
-    if (ss == "HIGH-GAIN")
-        return HighGain;
-    if (ss == "LOW-GAIN")
-        return LowGain;
-    if (ss == "ACCELEROMETER")
-        return Accelerometer;
-
-    // It should never get here!!
-    exit (EXIT_FAILURE);
-
-}
-
-string Instro_Type_to_string(Instro_Type c) {
-    switch (c) {
-    case HighGain:
-        return "H";
-    case LowGain:
-        return "L";
-    case Accelerometer:
-        return "N";
-
-    }
-    // It should never get here!!
-    exit (EXIT_FAILURE);
-}
 
 void generate_recorded_list(Earthquake er_info[1], ofstream& outputfile,
         Event db[MAXSIZE], int & size, int & total_co) {
