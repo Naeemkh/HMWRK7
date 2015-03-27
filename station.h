@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <string.h>
 #include "io_print_handler.h"
+#include "input_validate.h"
 
 using namespace std;
 
@@ -22,6 +23,11 @@ enum Band_Type {
 enum Instro_Type {
     HighGain, LowGain, Accelerometer
 };
+
+string Network_Code_to_string(Network_Code c);
+Network_Code string_to_Network_Code(string);
+
+
 
 class Event {
 

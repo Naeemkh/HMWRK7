@@ -107,4 +107,10 @@ string uppercase(string & s) {
     for (int i = 0; i < (int) result.size(); i++)
         result[i] = toupper(result[i]);
     return result;
+    
+    
 }
+
+
+
+

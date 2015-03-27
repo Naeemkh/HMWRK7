@@ -49,15 +49,6 @@ bool is_tzone_valid(string);
 bool is_mag_valid(string);
 bool is_mag_inrange(float);
 
-/*
-
-bool is_net_valid(string);
-bool is_station_valid(string);
-bool is_band_valid(string);
-bool is_instrument_valid(string);
-bool is_or_valid(string);
-
- */
 
 bool read_input(ifstream&, ofstream&, Event db[MAXSIZE], int &, int &, int &,
         int &, int &);
@@ -69,12 +60,12 @@ void generate_recorded_list(Earthquake er_info[1], ofstream&, Event db[MAXSIZE],
 
 string Instro_Type_to_string(Instro_Type c);
 string Band_Type_to_string(Band_Type c);
-string Network_Code_to_string(Network_Code c);
+//string Network_Code_to_string(Network_Code c);
 //string uppercase(string &);
 string Magnitude_Type_to_string(Magnitude_Type);
 
 months int_to_months(int);
-Network_Code string_to_Network_Code(string);
+//Network_Code string_to_Network_Code(string);
 Band_Type string_to_Band_Type(string);
 Instro_Type string_to_instro_Type(string);
 Magnitude_Type string_to_Magnitude_Type(string);
@@ -398,14 +389,7 @@ string month_to_string(months c) {
     exit (EXIT_FAILURE);
 }
 
-/*
-string uppercase(string & s) {
-    string result = s;
-    for (int i = 0; i < (int) result.size(); i++)
-        result[i] = toupper(result[i]);
-    return result;
-}
-*/
+
 
 void check_validate(Earthquake er_info[1], ofstream & errorfile, int & month,
         int & day, int & year) {
@@ -568,108 +552,6 @@ bool read_input(ifstream& inputfile, ofstream& errorfile, Event db[MAXSIZE],
 }
 
 /*
-
-bool is_net_valid(string nt_name) {
-    bool net_flag = 0;
-    string ss = uppercase(nt_name);
-    if (((ss == "CE") || (ss == "CI") || (ss == "FA") || (ss == "NP")
-            || (ss == "WR")) && (ss == nt_name)) {
-        net_flag = 1;
-    }
-    return net_flag;
-}
-
-bool is_band_valid(string b_type) {
-    bool band_flag = 0;
-    string ss = uppercase(b_type);
-    if ((ss == "LONG-PERIOD") || (ss == "SHORT-PERIOD")
-            || (ss == "BROADBAND")) {
-        band_flag = 1;
-    }
-    return band_flag;
-}
-
-bool is_instrument_valid(string Ins_type) {
-    bool ins_flag = 0;
-    string ss = uppercase(Ins_type);
-    if ((ss == "HIGH-GAIN") || (ss == "LOW-GAIN") || (ss == "ACCELEROMETER")) {
-        ins_flag = 1;
-    }
-    return ins_flag;
-}
-
-bool is_station_valid(string st_name) {
-    bool st_flag = 0;
-    string ss = uppercase(st_name);
-    int sn = st_name.size();
-
-    stringstream st_sst;
-    int st_in;
-    string st_string;
-
-    st_sst << st_name;
-    st_sst >> st_in;
-    st_sst << st_in;
-    st_sst >> st_string;
-
-    if (sn == 3 && ss == st_name && st_string == "") {
-        st_flag = 1;
-    }
-    if (sn == 5) {
-        st_flag = 1;
-        for (int i = 0; i == 4; i++) {
-            if (isdigit(st_name[i] == 0)) {
-                st_flag = 0;
-            }
-        }
-    }
-    return st_flag;
-}
-
-bool is_or_valid(string orientation) {
-
-    bool or_flag = 0;
-    int kk = 1;
-    int ors = orientation.size();
-
-    if (ors < 4 && ors > 0) {
-        if (isdigit(orientation[0])) {
-            for (int i = 0; i < ors; i++) {
-                if (strncmp(&orientation[i], "1", 1) == 0
-                        || strncmp(&orientation[i], "2", 1) == 0
-                        || strncmp(&orientation[i], "3", 1) == 0) {
-                    kk = kk + 1;
-                }
-            }
-        } else {
-
-            for (int i = 0; i < ors; i++) {
-                if (strncmp(&orientation[i], "N", 1) == 0
-                        || strncmp(&orientation[i], "E", 1) == 0
-                        || strncmp(&orientation[i], "Z", 1) == 0) {
-                    kk = kk + 1;
-                }
-            }
-        }
-    }
-
-    if (kk - 1 == ors) {
-        or_flag = 1;
-    }
-    if (ors == 2 && orientation[0] == orientation[1]) {
-        or_flag = 0;
-    }
-    if (ors == 2
-            && (orientation[0] == orientation[1]
-                    || orientation[0] == orientation[2]
-                    || orientation[1] == orientation[2])) {
-        or_flag = 0;
-    }
-
-    return or_flag;
-}
-
-*/
  
 Network_Code string_to_Network_Code(string s) {
 
@@ -708,6 +590,7 @@ string Network_Code_to_string(Network_Code c) {
     exit (EXIT_FAILURE);
 }
 
+ */
 Band_Type string_to_Band_Type(string s) {
 
     string ss = uppercase(s);

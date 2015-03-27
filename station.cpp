@@ -1,10 +1,62 @@
 #include "station.h"
 
 
-void Event::set_nt_name(Event db[MAXSIZE], Network_Code nt_name1) {
-           nt_name = nt_name1;
-     
+Network_Code string_to_Network_Code(string s) {
+    
+    string ss = uppercase(s);
+    
+    if (ss == "CE")
+        return CE;
+    if (ss == "CI")
+        return CI;
+    if (ss == "FA")
+        return FA;
+    if (ss == "NP")
+        return NP;
+    if (ss == "WR")
+        return WR;
+    
+    // It should never get here!!
+    exit (EXIT_FAILURE);
+    
 }
+
+string Network_Code_to_string(Network_Code c) {
+    switch (c) {
+        case CE:
+            return "CE";
+        case CI:
+            return "CI";
+        case FA:
+            return "FA";
+        case NP:
+            return "NP";
+        case WR:
+            return "WR";
+    }
+    // It should never get here!!
+    exit (EXIT_FAILURE);
+}
+
+
+
+
+
+
+
+void Event::set_nt_name(Event db[MAXSIZE], Network_Code nt_name1) {
+    
+    string nt_name2 = Network_Code_to_string (nt_name1);
+    
+    if (is_net_valid(nt_name2) == 1) {
+           nt_name = nt_name1;
+    } else {
+        cout << "Invalide alloacation.";
+    }
+}
+
+
+
 
 Network_Code Event::get_nt_name(Event db[MAXSIZE]) {
 
